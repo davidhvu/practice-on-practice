@@ -80,7 +80,7 @@ document.getElementById("replace-btn").onclick = function() {
 
 }
 
-const exampleArray = [{
+let exampleArray = [{
     title: "The Full Caterpillar",
     entry: "There was once a caterpillar like no other. And then it become even more so. A caterpillar who ate far too much and stayed that way. It was a strange Saturday afternoon. The sun was just hot enough where each step gave a tingle to the lowly caterpillar. But it was not enough to stopped the caterpillar from seeking its food, its destiny. Its destination was one that always seemingly evaded the caterpillar, but that never gave defeat onto the caterpillar. No. It only just motivated the caterpillar even more. It made the caterpillar even more hungry despite its fullness.",
     date: "September 20, 2018"
@@ -94,3 +94,25 @@ const exampleArray = [{
     date: "June 16th, 2015"
 }]
 
+// for of loop
+for (const journal of exampleArray) {
+    console.log(journal)
+}
+
+// forEach loop
+exampleArray.forEach( journal => console.log(journal))
+
+// Spread Syntax: example
+let moreExample = {
+    title: "The Test",
+    entry: "She asked me what is 7 times 6. I stalled. It was too late. I yelled the answer I just knew. She looked at me. It's 42, dumbo. I was ashamed.",
+    date: "September 29th, 2012"
+}
+
+
+console.log(...exampleArray)
+
+// Filter
+const filterWordExample = exampleArray.filter(e => e.date.includes("June"))
+
+console.log(filterWordExample)
