@@ -1,3 +1,9 @@
+const helloWorld = "Hello! Thank you for checking this out for some odd ball reason. This is mostly in the pandemic time of early 2020s(late February) to whatever. My Github should illustrate that. Not well, but it should give some picture. Maybe this is just a comment to my future self. I hope you keep learning. Keep breaking it down so that it's digestable."
+
+console.log(helloWorld)
+
+
+
 const listOfStrings = [
     "Pack my box with five dozen liquor jugs.", 
     "The quick brown fox jumps over the lazy dog.",
@@ -116,3 +122,11 @@ console.log(...exampleArray)
 const filterWordExample = exampleArray.filter(e => e.date.includes("June"))
 
 console.log(filterWordExample)
+
+// Print Array of Objects onto HTML
+const stringedArray1 = JSON.stringify(exampleArray[0], null, 4)
+const stringedArray2 = JSON.stringify(exampleArray[1], null, 4)
+const stringedArray3 = JSON.stringify(exampleArray[2], null, 4)
+const stringedArray4 = JSON.stringify(moreExample, null, 4)
+document.getElementById("arr-the-pirate-ship").innerHTML = stringedArray1 + "<br>" + stringedArray2 + "<br>" + stringedArray3 + "<br>" + stringedArray4
+console.log(stringedArray4)
