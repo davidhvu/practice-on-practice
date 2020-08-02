@@ -1,3 +1,9 @@
+const helloWorld = "Hello! Thank you for checking this out for some odd ball reason. This is mostly in the pandemic time of early 2020s(late February) to whatever. My Github should illustrate that. Not well, but it should give some picture. Maybe this is just a comment to my future self. I hope you keep learning. Keep breaking it down so that it's digestable."
+
+console.log(helloWorld)
+
+
+
 const listOfStrings = [
     "Pack my box with five dozen liquor jugs.", 
     "The quick brown fox jumps over the lazy dog.",
@@ -11,7 +17,7 @@ const setString = function (id, data) {
     pString.textContent = data
 }
 
-console.log(listOfStrings[0])
+// console.log(listOfStrings[0])
 
 setString("string-city", listOfStrings[0])
 setString("string-town", listOfStrings[1])
@@ -53,4 +59,100 @@ document.getElementById("split-length-gen").onclick = function() {
     document.getElementById('string-split-length-2').textContent = "There are " + stringSplitLength2 + " words in the second string."
     document.getElementById('string-split-length-3').textContent = "There are " + stringSplitLength3 + " words in the third string."
     
+}
+
+// Button to Replace First Text(This) with Second Text(That) WIP**
+
+const userInputReplace = {
+    replacedWords: "" ,
+    
+}
+
+
+
+document.getElementById("replace-btn").onclick = function() {
+    // const userInputRegex = document.getElementById("replaced-string")
+    // userInputRegex = ""
+    // console.log(userInputRegex)
+    const userInputReplacingWord = document.getElementById("replacing-string").value
+    const userInputReplacedWord = document.getElementById("replaced-string").value
+    const find = new RegExp(document.getElementById("find").value, 'gi')
+
+    const replace = userInputReplacingWord.replace(find, userInputReplacedWord)
+    
+    console.log(replace)
+    // const replacedWords = listOfStrings.replace(userInputReplace.replacedWords, userInputReplacingWord)
+    // document.getElementById("strings-to-be-replaced").textContent = replacedWords
+
+}
+
+let exampleArray = [{
+    title: "The Full Caterpillar",
+    entry: "There was once a caterpillar like no other. And then it become even more so. A caterpillar who ate far too much and stayed that way. It was a strange Saturday afternoon. The sun was just hot enough where each step gave a tingle to the lowly caterpillar. But it was not enough to stopped the caterpillar from seeking its food, its destiny. Its destination was one that always seemingly evaded the caterpillar, but that never gave defeat onto the caterpillar. No. It only just motivated the caterpillar even more. It made the caterpillar even more hungry despite its fullness.",
+    date: "September 20, 2018"
+}, {
+    title: "False Memories",
+    entry: "I get fond of memories. Nostalgic even. Something about looking back just makes me look forward to so much in the future. At times, I would remember something and get so excited to talk about it with my wife. I tell her, expecting her remember the same memory as well, but she just looks at me with a raised eyebrow giving me a concerning stare that just pierces my soul and well-being. She rejects the notion that she was a part of that memory and exclaims that it was probably with somebody else. It makes me question the validity of my memories. Can I even trust those mememories? If I can't trust my memory, how can I even trust myself? Hell, I don't even trust me right now.",
+    date: "November 11, 2019"
+}, {
+    title: "The Routine",
+    entry: "Wake up at 6:00AM. Drink the full cup of water on the nightstand. Go to bathroom to brush teeth, swish mouthwash, wash face, and rinse. Then prep lunch and go to work with it. Eat lunch at work. Come back home. Grab hammer and swing at tire a bunch. Shower. Go to bed. ",
+    date: "June 16th, 2015"
+}]
+
+// for of loop
+// for (const journal of exampleArray) {
+//      console.log(journal)
+// }
+
+// forEach loop
+// exampleArray.forEach( journal => console.log(journal))
+
+// Spread Syntax: example
+let moreExample = {
+    title: "The Test",
+    entry: "She asked me what is 7 times 6. I stalled. It was too late. I yelled the answer I just knew. She looked at me. It's 42, dumbo. I was ashamed.",
+    date: "September 29th, 2012"
+}
+
+
+// console.log(...exampleArray)
+
+// Filter
+const filterWordExample = exampleArray.filter(e => e.date.includes("June"))
+
+// console.log(filterWordExample)
+
+// Print Array of Objects onto HTML
+const stringedArray1 = JSON.stringify(exampleArray[0], null, 4)
+const stringedArray2 = JSON.stringify(exampleArray[1], null, 4)
+const stringedArray3 = JSON.stringify(exampleArray[2], null, 4)
+const stringedArray4 = JSON.stringify(moreExample, null, 4)
+document.getElementById("arr-the-pirate-ship").innerHTML = stringedArray1 + "<br><br>" + stringedArray2 + "<br><br>" + stringedArray3 + "<br><br>" + stringedArray4
+console.log(stringedArray4)
+
+
+// Added additional entry to main array
+exampleArray[3] = moreExample
+console.log(exampleArray)
+let nextInArray = {
+    title: "Waiting",
+    entry: "John said he'd come back. He told me to sit. He told me to wait here. Be a good boy, John said. I'm gonna wait here. Be a good boy. Oh, what was that?! I have to wait here. I'm a little tired. I'm gonna lay down here.",
+    date: "January 19th, 2001"
+}
+
+// Keeping main array to only have 4 objects at a time -> Removes first entry first, then add in new entry at the end
+document.getElementById("add-entry").onclick = function() {
+    exampleArray.shift()
+    exampleArray.push(nextInArray)
+    console.log(exampleArray)
+}
+
+// Grab input from user and assign it to nextInArray variable and add that variable as new entry in main array
+
+
+document.getElementById("add-custom-entry").onclick = function () {
+    exampleArray.shift()
+    exampleArray.push(nextInArray)
+    console.log(exampleArray)
 }
