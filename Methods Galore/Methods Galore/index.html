@@ -63,6 +63,32 @@
 
             <h4>Arrays</h4>
             <p id="arr-the-pirate-ship"></p>
+            <button type="button" class="btn btn-outline-primary" id="add-entry">Add Entry</button>
+            <hr>
+
+            <form id="add-entry-form">
+              <div class="input-group input-group-sm mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder = "Your Title"name="newTitle">
+                </div>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Entry</span>
+                  </div>
+                  <textarea class="form-control" aria-label="With textarea" placeholder ="New Entry" name="newEntry"></textarea>
+                </div>
+              <br>
+              <div class="input-group input-group-sm mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder = "Date of Entry" name="newDate">
+                </div>
+              <button class="btn btn-outline-primary" type="submit" id="add-custom-entry">Add New Entry</button>
+              <hr>
+            </form>
 
         </div>
 

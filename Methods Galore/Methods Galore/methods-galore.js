@@ -17,7 +17,7 @@ const setString = function (id, data) {
     pString.textContent = data
 }
 
-console.log(listOfStrings[0])
+// console.log(listOfStrings[0])
 
 setString("string-city", listOfStrings[0])
 setString("string-town", listOfStrings[1])
@@ -101,12 +101,12 @@ let exampleArray = [{
 }]
 
 // for of loop
-for (const journal of exampleArray) {
-    console.log(journal)
-}
+// for (const journal of exampleArray) {
+//      console.log(journal)
+// }
 
 // forEach loop
-exampleArray.forEach( journal => console.log(journal))
+// exampleArray.forEach( journal => console.log(journal))
 
 // Spread Syntax: example
 let moreExample = {
@@ -116,17 +116,57 @@ let moreExample = {
 }
 
 
-console.log(...exampleArray)
+// console.log(...exampleArray)
 
 // Filter
 const filterWordExample = exampleArray.filter(e => e.date.includes("June"))
 
-console.log(filterWordExample)
+// console.log(filterWordExample)
 
 // Print Array of Objects onto HTML
 const stringedArray1 = JSON.stringify(exampleArray[0], null, 4)
 const stringedArray2 = JSON.stringify(exampleArray[1], null, 4)
 const stringedArray3 = JSON.stringify(exampleArray[2], null, 4)
 const stringedArray4 = JSON.stringify(moreExample, null, 4)
-document.getElementById("arr-the-pirate-ship").innerHTML = stringedArray1 + "<br>" + stringedArray2 + "<br>" + stringedArray3 + "<br>" + stringedArray4
+document.getElementById("arr-the-pirate-ship").innerHTML = stringedArray1 + "<br><br>" + stringedArray2 + "<br><br>" + stringedArray3 + "<br><br>" + stringedArray4
 console.log(stringedArray4)
+
+
+// Added additional entry to main array
+exampleArray[3] = moreExample
+console.log(exampleArray)
+let nextInArray = {
+    title: "Waiting",
+    entry: "John said he'd come back. He told me to sit. He told me to wait here. Be a good boy, John said. I'm gonna wait here. Be a good boy. Oh, what was that?! I have to wait here. I'm a little tired. I'm gonna lay down here.",
+    date: "January 19th, 2001"
+}
+
+// Keeping main array to only have 4 objects at a time -> Removes first entry first, then add in new entry at the end
+document.getElementById("add-entry").onclick = function() {
+    exampleArray.shift()
+    exampleArray.push(nextInArray)
+    console.log(exampleArray)
+}
+
+// Grab input from user and assign it to nextInArray variable and add that variable as new entry in main array
+
+
+// document.getElementById("add-custom-entry").onclick = function () {
+//     exampleArray.shift()
+//     exampleArray.push(nextInArray)
+//     console.log(exampleArray)
+// }
+
+document.querySelector("#add-entry-form").addEventListener("submit", function(e) {
+    e.preventDefault()
+    let theEntry = e.target.elements.newEntry.value
+    let theTitle = e.target.elements.newTitle.value
+    let theDate = e.target.elements.newDate.value
+    exampleArray.shift()
+    exampleArray.push({
+        title: theTitle,
+        entry: theEntry, 
+        date: theDate
+    })
+    console.log(exampleArray)
+})
