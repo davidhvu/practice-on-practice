@@ -100,6 +100,8 @@ let exampleArray = [{
     date: "June 16th, 2015"
 }]
 
+let pastArray = []
+
 // for of loop
 // for (const journal of exampleArray) {
 //      console.log(journal)
@@ -162,11 +164,15 @@ document.querySelector("#add-entry-form").addEventListener("submit", function(e)
     let theEntry = e.target.elements.newEntry.value
     let theTitle = e.target.elements.newTitle.value
     let theDate = e.target.elements.newDate.value
-    exampleArray.shift()
+    pastArray.push(exampleArray.shift())
     exampleArray.push({
         title: theTitle,
         entry: theEntry, 
         date: theDate
     })
+    console.log(pastArray)
     console.log(exampleArray)
 })
+
+
+
