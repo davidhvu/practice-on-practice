@@ -1,4 +1,3 @@
-console.log(uuidv4())
 
 // Read existing saved data from localStorage
 const getSavedNotes = function () {
@@ -10,6 +9,12 @@ const getSavedNotes = function () {
         return []
     }
 }
+
+// Save the notes to localStorage
+const saveNotes = function (notes) {
+    localStorage.setItem("notes", JSON.stringify(notes))
+}
+
 
 // Remove a note from the list
 const removeNote = function(id) {
@@ -25,7 +30,7 @@ const removeNote = function(id) {
 // Generate the DOM structure for a note
 const generateNoteDOM = function (note) {
     const noteEl = document.createElement('div')
-    const textEl = document.createElement('span')
+    const textEl = document.createElement('a')
     const button = document.createElement("button")
 
     // Setup the remove note button
@@ -33,7 +38,7 @@ const generateNoteDOM = function (note) {
     noteEl.appendChild(button)
     button.addEventListener("click", function () {
         removeNote(note.id)
-        getSavedNotes(notes)
+        saveNotes(notes)
         renderNotes(notes, filters)
     })
 
@@ -43,7 +48,7 @@ const generateNoteDOM = function (note) {
         } else {
             textEl.textContent = "Unnamed note"
         }
-
+        textEl.setAttribute("href", `/edit.html#${note.id}`)
         noteEl.appendChild(textEl)
 
         return noteEl
