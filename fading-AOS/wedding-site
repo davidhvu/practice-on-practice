@@ -1,0 +1,56 @@
+<html>
+  
+  <head>
+    
+     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+  </head>
+  
+  <body>
+    <!--WELCOME PAGE-->
+    <div class="jumbotron d-flex align-items-center min-vh-100" id="bg-pic">
+      <div class = "container text-center">
+        <div class="row">
+          <div class ="col-12">
+            <h1 class = "fadein" id = "welcome-text-1">Hello and Welcome!</h1>
+            <h1 class = "fadein" id = "welcome-text-2">Our Wedding</h1>
+            <p class = "fadein" id = "welcome-text-3">Scroll down whenever you're ready.<br>Enjoy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--LIST OF ITEMS/BLOCKS-->
+    <div class="container">
+      <div class = "col-12 py-3">
+        <div class="block" data-aos="fade-right" ></div>
+      </div>
+      <div class = "col-12 py-3">
+        <div class="block" data-aos="fade-left" ></div>
+      </div>
+      <div class = "col-12 py-3">
+        <div class="block" data-aos="fade-in" ></div>
+      </div>
+       <div class = "col-12 py-3">
+        <div class="block" data-aos="fade-up" ></div>
+      </div>
+       <div class = "col-12 py-3">
+        <div class="block" data-aos="slide-down" ></div>
+      </div>
+       <div class = "col-12 py-3">
+        <div class="block" data-aos="zoom-in" ></div>
+      </div>
+    </div>
+    
+  
+    
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    AOS.init();
+  </script>
+  </body>
+  
+  
+  
+  
+</html>
