@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Heebo', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+    background-color: #F8F8F8 !important;
+}
+
+
+#add-display {
+    display: none;
+}
