@@ -11,6 +11,14 @@ p {
 }
 
 
-.form-display {
+#form-display-add {
+    display: none;
+}
+
+#form-display-recall {
+    display: none;
+}
+
+#form-display-generate {
     display: none;
 }
