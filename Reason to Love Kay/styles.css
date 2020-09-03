@@ -1,0 +1,24 @@
+h1 {
+    font-family: 'Heebo', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+    background-color: #F8F8F8 !important;
+}
+
+
+#form-display-add {
+    display: none;
+}
+
+#form-display-recall {
+    display: none;
+}
+
+#form-display-generate {
+    display: none;
+}
