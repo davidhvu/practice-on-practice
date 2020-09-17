@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    
+    function add7 (number) {
+        const newNum = number + 7
+        console.log(newNum)
+    }
+
+    function multiply (number) {
+        const newNum = number * 2
+        console.log(newNum)
+    }
+
+    function capitalize (string) {
+        const firstLetter = string.charAt(string[0]).toUpperCase()+string.slice(1)
+        console.log(firstLetter)
+    }
+
+    function lastLetter(string) {
+        const lastABC = string.charAt((string.length - 1))
+        console.log(lastABC)
+    }
+
+    let string = "chicken noodle soup"
+    console.log(capitalize(string))
+    console.log(lastLetter(string))
+  </script>
+</body>
+</html>
