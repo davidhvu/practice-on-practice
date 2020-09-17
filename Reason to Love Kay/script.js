@@ -45,8 +45,8 @@ document.querySelector("#gen-reason").onclick = function generateReason () {
         const reasonNumberDOM = document.createElement("h4")
         const reasonDOM = document.createElement("p")
         reasonDOM.innerHTML =  `${strArr}`
-        return reasonDOM 
         console.log(reasonDOM)
+        return reasonDOM 
     }
 
     document.querySelector("#random-reason-box").innerHTML = ""
