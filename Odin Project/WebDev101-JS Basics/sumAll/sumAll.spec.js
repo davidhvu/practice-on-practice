@@ -10,13 +10,13 @@ describe('sumAll', function() {
   it('works with larger number first', function() {
     expect(sumAll(123, 1)).toEqual(7626);
   });
-  xit('returns ERROR with negative numbers', function() {
+  it('returns ERROR with negative numbers', function() {
     expect(sumAll(-10, 4)).toEqual('ERROR');
   });
-  xit('returns ERROR with non-number parameters', function() {
+  it('returns ERROR with non-number parameters', function() {
     expect(sumAll(10, "90")).toEqual('ERROR');
   });
-  xit('returns ERROR with non-number parameters', function() {
+  it('returns ERROR with non-number parameters', function() {
     expect(sumAll(10, [90, 1])).toEqual('ERROR');
   });
 });
