@@ -39,36 +39,23 @@
 
     console.log(computerPlay(maxChoices))
 
-        // Buttons + playRound
-    const buttons = document.querySelectorAll('button');
     
-
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            let playerSelection = button.id 
-            console.log((playRound(playerSelection, computerPlay(maxChoices))))
-            // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
-            
-        });
-    });
-
-
     const results = document.createElement('p');
     
   
     
     function playRound (playerSelection, computerSelection) {
-        let lowerCasePlayerSelection = playerSelection.toLowerCase()
+        // let lowerCasePlayerSelection = playerSelection.toLowerCase()
         let round = ""
-        if (lowerCasePlayerSelection == "rock" && computerSelection == "paper") {
+        if (playerSelection == "rock" && computerSelection == "paper") {
             let rockLose = results.textContent = "You lose! Paper beats Rock"
             let round = "computerWins"
             return rockLose && round
-        } else if (lowerCasePlayerSelection == "paper" && computerSelection == "scissor") {
+        } else if (playerSelection == "paper" && computerSelection == "scissor") {
             return results.textContent = "You lose! Scissors beats Paper"
-        } else if (lowerCasePlayerSelection == "scissor" && computerSelection == "rock") {
+        } else if (playerSelection == "scissor" && computerSelection == "rock") {
             return results.textContent = "You lose! Rock beats Scissor"
-        } else if (lowerCasePlayerSelection == computerSelection) {
+        } else if (playerSelection == computerSelection) {
             return "Whoa! You both did " + computerSelection + ". It's a tie!"
         } else {
             return results.textContent = "Nice, you beat the computer! Go buy yourself a goodie!"
@@ -79,11 +66,19 @@
     const computerScoreNum = document.querySelector('#computerScore');
     let cScore = document.createElement('p');
 
-    function game () {
+    function scoreBoard (playerScore, computerScore) {
+        if (playerScore === 5) {
+            return "You win!"
+        } else if (computerScore === 5) {
+            return "Computer wins!"
+        }
+    }
+
+    function game (playRound) {
         let playerScore = 0;
         let computerScore = 0;
         for (let i = 0; i <= 5; i++) {
-            let round = playRound(playerSelection, computerSelection)
+            let round = playRound
             if (round === "playerWins") {
                 playerScore++
             }
@@ -94,16 +89,26 @@
         }
         cScore.innerText = computerScore;
         computerScoreNum.appendChild(cScore)
-        console.log(cScore)
+        // console.log(cScore)
     }
 
-    function scoreBoard (playerScore, computerScore) {
-        if (playerScore === 5) {
-            return "You win!"
-        } else if (computerScore === 5) {
-            return "Computer wins!"
-        }
-    }
+    
+        // Buttons + playRound
+        const buttons = document.querySelectorAll('button');
+    
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            let playerSelection = button.id 
+            console.log(playerSelection)
+            console.log(playRound(playerSelection, computerPlay))
+            console.log(game(playRound(playerSelection, computerPlay(maxChoices))))
+            // console.log((playRound(playerSelection, computerPlay(maxChoices))))
+            // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
+            
+        });
+        
+    });
 
     
     
