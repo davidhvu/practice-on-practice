@@ -21,6 +21,9 @@
         <div id="computerScoreBoard">
             Computer Score: <p id="computerScore"></p>
         </div>
+        <br>
+        <br>
+        <div id="results"></div>
     </div>
   <script>
 
@@ -37,47 +40,64 @@
         }
     }
 
-    console.log(computerPlay(maxChoices))
-
-    
+    const container = document.querySelector('#container')
+    const scorePlayer = document.getElementById('playerScore');
+    const scoreComputer = document.getElementById('computerScore');
     const results = document.createElement('p');
     
-  
     
+    
+    const playerSelection = buttonSelection()
     function playRound (playerSelection, computerSelection) {
         // let lowerCasePlayerSelection = playerSelection.toLowerCase()
         
-        let round = ""
-        if (playerSelection == "rock" && computerSelection == "paper") {
-            let rockLose = results.textContent = "You lose! Paper beats Rock"
-            let round = "computerWins"
-            return rockLose && round
-        } else if (playerSelection == "paper" && computerSelection == "scissor") {
-            let paperLose = results.textContent = "You lose! Scissors beats Paper"
-            let round = "computerWins"
-            return paperLose && round
-        } else if (playerSelection == "scissor" && computerSelection == "rock") {
-            let scissorsLose = results.textContent = "You lose! Rock beats Scissor"
-            let round = "computerWins"
-            return scissorsLose && round
-        } else if (playerSelection == computerSelection) {
-            return "Whoa! You both did " + computerSelection + ". It's a tie!"
-        } else {
-            let round = "playerWins"
-            return results.textContent = "Nice, you beat the computer! Go buy yourself a goodie!" && round
-        }
+        if (playerSelection == "rock") {
+            if(computerSelection == 'paper') {
+                let round = "computerWins"
+            }
+            if(computerSelection == "scissors") {
+                let round = "playerWins"
+            } 
+            else {
+                let round = "bothTied"
+            }
+            
+        } else if (playerSelection == "paper") {
+            if (computerSelection == "scissors") {
+                let round = "computerWins"
+            } 
+            if (computerSelection == "rock") {
+                let round = "playerWins"
+            } 
+            else {
+                let round = "bothTied"
+            }
+
+        } else if (playerSelection == "scissor") {
+            if (computerSelection == "rock") {
+                let round = "computerWins" 
+            }
+            if (computerSelection == "paper") {
+                let round = "playerWins"
+            }
+            else {
+                let round = "bothTied"
+            }
+        } 
     }
 
-    const container = document.querySelector('#container')
-    const computerScoreNum = document.querySelector('#computerScore');
-    let cScore = document.createElement('p');
+
+   
 
     function scoreBoard (playerScore, computerScore) {
         if (playerScore === 5) {
             return "You win!"
         } else if (computerScore === 5) {
             return "Computer wins!"
+        } else {
+            return false
         }
+
     }
 
     //CURRENT ISSUE: FIX game function
@@ -86,32 +106,31 @@
         let computerScore = 0;
         for (let i = 0; i <= 5; i++) {
             if (round === "playerWins") {
-               let playerScore = playerScore++
-                
-                return playerScore
+               scorePlayer.innterHTML = parseInt(scorePlayer.innerHTML) + 1
+               console.log(scoreBoard(playerScore, computerScore))
+               
             } else {
                 "ERROR"
             }
             if (round === "computerWins") {
-                let computerScore = computerScore++
-                return computerScore
+                scoreComputer.innerHTML = parseInt(scoreComputer.innerHTML) + 1
+                console.log(scoreBoard(playerScore, computerScore))
             } else {
                 "ERROR"
             }
+            if (round === "bothTied") {
+                results.innerHTML = "You both tied! Feel free to try again."
+            }
             console.log(playerScore)
-            scoreBoard(playerScore, computerScore)
         }
-        // cScore.innerText = computerScore;
-        // computerScoreNum.appendChild(cScore)
-        // // console.log(cScore)
     }
 
-    
-        // Buttons + playRound
-        const buttons = document.querySelectorAll('button');
+     // Buttons + playRound
+     const buttons = document.querySelectorAll('button');
     
 
-    buttons.forEach((button) => {
+    function buttonSelection () {
+        buttons.forEach((button) => {
         button.addEventListener('click', () => {
             const playerSelection = button.id 
             console.log(playerSelection)
@@ -121,8 +140,9 @@
             // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
             
         });
-        
     });
+    }
+     
 
     
     
