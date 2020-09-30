@@ -46,46 +46,51 @@
     const results = document.createElement('p');
     
     
-    
-    const playerSelection = buttonSelection()
     function playRound (playerSelection, computerSelection) {
         // let lowerCasePlayerSelection = playerSelection.toLowerCase()
-        
         if (playerSelection == "rock") {
             if(computerSelection == 'paper') {
                 let round = "computerWins"
+                return round
             }
             if(computerSelection == "scissors") {
                 let round = "playerWins"
+                return round
             } 
             else {
                 let round = "bothTied"
+                return round
             }
             
         } else if (playerSelection == "paper") {
             if (computerSelection == "scissors") {
                 let round = "computerWins"
+                return round
             } 
             if (computerSelection == "rock") {
                 let round = "playerWins"
+                return round
             } 
             else {
                 let round = "bothTied"
+                return round
             }
 
-        } else if (playerSelection == "scissor") {
+        } else if (playerSelection == "scissors") {
             if (computerSelection == "rock") {
                 let round = "computerWins" 
+                return round
             }
             if (computerSelection == "paper") {
                 let round = "playerWins"
+                return round
             }
             else {
                 let round = "bothTied"
+                return round
             }
         } 
     }
-
 
    
 
@@ -104,45 +109,39 @@
     function game (round) {
         let playerScore = 0;
         let computerScore = 0;
-        for (let i = 0; i <= 5; i++) {
-            if (round === "playerWins") {
+            if (round == "playerWins") {
                scorePlayer.innterHTML = parseInt(scorePlayer.innerHTML) + 1
-               console.log(scoreBoard(playerScore, computerScore))
-               
             } else {
                 "ERROR"
             }
-            if (round === "computerWins") {
+            if (round == "computerWins") {
                 scoreComputer.innerHTML = parseInt(scoreComputer.innerHTML) + 1
-                console.log(scoreBoard(playerScore, computerScore))
             } else {
                 "ERROR"
             }
-            if (round === "bothTied") {
+            if (round == "bothTied") {
                 results.innerHTML = "You both tied! Feel free to try again."
             }
             console.log(playerScore)
-        }
-    }
-
-     // Buttons + playRound
-     const buttons = document.querySelectorAll('button');
+        } 
+        scoreBoard(playerScore, computerScore)
     
 
-    function buttonSelection () {
-        buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const playerSelection = button.id 
-            console.log(playerSelection)
-            console.log(playRound(playerSelection, computerPlay(maxChoices)))
-            console.log(game(playRound(playerSelection, computerPlay(maxChoices))))
-            // console.log((playRound(playerSelection, computerPlay(maxChoices))))
-            // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
-            
+
+      // Buttons + playRound
+    const buttons = document.querySelectorAll('button');
+    
+
+    buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id 
+        console.log(playerSelection)
+        console.log(playRound(playerSelection, computerPlay(maxChoices)))
+        console.log(game(playRound(playerSelection, computerPlay(maxChoices))))
+        // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
+        
         });
     });
-    }
-     
 
     
     
