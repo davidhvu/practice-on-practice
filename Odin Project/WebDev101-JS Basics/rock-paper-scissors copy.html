@@ -53,7 +53,7 @@
                 let round = "computerWins"
                 return round
             }
-            if(computerSelection == "scissors") {
+            else if(computerSelection == "scissors") {
                 let round = "playerWins"
                 return round
             } 
@@ -67,7 +67,7 @@
                 let round = "computerWins"
                 return round
             } 
-            if (computerSelection == "rock") {
+            else if (computerSelection == "rock") {
                 let round = "playerWins"
                 return round
             } 
@@ -81,7 +81,7 @@
                 let round = "computerWins" 
                 return round
             }
-            if (computerSelection == "paper") {
+            else if (computerSelection == "paper") {
                 let round = "playerWins"
                 return round
             }
@@ -109,20 +109,23 @@
     function game (round) {
         let playerScore = 0;
         let computerScore = 0;
-            if (round == "playerWins") {
-               scorePlayer.innterHTML = parseInt(scorePlayer.innerHTML) + 1
+        let playedRound = round
+        console.log(round)
+            if (playedRound == "playerWins") {
+                console.log(playerScore)
             } else {
                 "ERROR"
             }
-            if (round == "computerWins") {
-                scoreComputer.innerHTML = parseInt(scoreComputer.innerHTML) + 1
+            if (playedRound == "computerWins") {
+                console.log(computerScore)
+                // scoreComputer.innerHTML = parseInt(scoreComputer.innerHTML) + 1
             } else {
                 "ERROR"
             }
             if (round == "bothTied") {
                 results.innerHTML = "You both tied! Feel free to try again."
             }
-            console.log(playerScore)
+            
         } 
         scoreBoard(playerScore, computerScore)
     
