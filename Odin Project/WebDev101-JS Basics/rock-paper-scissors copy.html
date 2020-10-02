@@ -92,45 +92,47 @@
         } 
     }
 
-   
+    let playerScore = 0;
+    let computerScore = 0;
 
     function scoreBoard (playerScore, computerScore) {
         if (playerScore === 5) {
-            return "You win!"
+            console.log("You win!")
+            let playerScore = 0
+            let computerScore = 0
         } else if (computerScore === 5) {
-            return "Computer wins!"
-        } else {
-            return false
-        }
+            console.log("Computer wins!")
+            let playerScore = 0
+            let computerScore = 0
+        } 
 
     }
 
-    //CURRENT ISSUE: FIX game function
+    
     function game (round) {
-        let playerScore = 0;
-        let computerScore = 0;
-        let playedRound = round
+    
         console.log(round)
-            if (playedRound == "playerWins") {
+            if (round == "playerWins") {
+                playerScore ++
                 console.log(playerScore)
+                return playerScore
             } else {
                 "ERROR"
             }
-            if (playedRound == "computerWins") {
+            if (round == "computerWins") {
+                computerScore++
                 console.log(computerScore)
-                // scoreComputer.innerHTML = parseInt(scoreComputer.innerHTML) + 1
+                return computerScore
             } else {
                 "ERROR"
             }
             if (round == "bothTied") {
-                results.innerHTML = "You both tied! Feel free to try again."
+                return "You both tied! Feel free to try again."
             }
-            
-        } 
         scoreBoard(playerScore, computerScore)
+        } 
     
-
-
+        //CURRENT ISSUE: MAKE CONSOLE.LOGs into DOM 
       // Buttons + playRound
     const buttons = document.querySelectorAll('button');
     
@@ -139,7 +141,6 @@
     button.addEventListener('click', () => {
         let playerSelection = button.id 
         console.log(playerSelection)
-        console.log(playRound(playerSelection, computerPlay(maxChoices)))
         console.log(game(playRound(playerSelection, computerPlay(maxChoices))))
         // results.textContent = (playRound(playerSelection, computerPlay(maxChoices)))
         
