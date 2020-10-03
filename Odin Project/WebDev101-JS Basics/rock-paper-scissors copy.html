@@ -23,7 +23,7 @@
         </div>
         <br>
         <br>
-        <div id="results"></div>
+        <p id="results"></p>
     </div>
   <script>
 
@@ -36,7 +36,7 @@
         } else if (randomInt == 2) {
             return "paper"
         } else {
-            return "scissor"
+            return "scissors"
         }
     }
 
@@ -97,11 +97,11 @@
 
     function scoreBoard (playerScore, computerScore) {
         if (playerScore === 5) {
-            console.log("You win!")
+            resultsDisplay.innerHTML = "You win!"
             let playerScore = 0
             let computerScore = 0
         } else if (computerScore === 5) {
-            console.log("Computer wins!")
+            resultsDisplay.innerHTML = "Computer wins!"
             let playerScore = 0
             let computerScore = 0
         } 
@@ -110,29 +110,29 @@
 
     
     function game (round) {
-    
-        console.log(round)
-            if (round == "playerWins") {
-                playerScore ++
-                console.log(playerScore)
-                return playerScore
-            } else {
-                "ERROR"
-            }
-            if (round == "computerWins") {
-                computerScore++
-                console.log(computerScore)
-                return computerScore
-            } else {
-                "ERROR"
-            }
-            if (round == "bothTied") {
-                return "You both tied! Feel free to try again."
-            }
+        
         scoreBoard(playerScore, computerScore)
+        if (round == "playerWins") {
+            playerScore ++
+            console.log(playerScore)
+            playerScoreDisplay.innerHTML = playerScore
+            return playerScore
+        }
+        if (round == "computerWins") {
+            computerScore++
+            console.log(computerScore)
+            computerScoreDisplay.innerHTML = computerScore
+            return computerScore
         } 
+        if (round == "bothTied") {
+            return "You both tied! Feel free to try again."
+        }
+    } 
     
         //CURRENT ISSUE: MAKE CONSOLE.LOGs into DOM 
+    const playerScoreDisplay = document.getElementById('playerScore')
+    const computerScoreDisplay = document.getElementById('computerScore')
+    const resultsDisplay = document.getElementById('results')
       // Buttons + playRound
     const buttons = document.querySelectorAll('button');
     
